@@ -1,0 +1,12 @@
+
+  .search-bar-container {
+    background-color: #00ff48e7; /* Set background color */
+    color: #fff; /* Set text color */
+    padding: 8px 12px; /* Add padding for button */
+    border: 3px solid green; /* Remove border */
+    cursor: pointer; /* Change cursor on hover */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  } 
+  
