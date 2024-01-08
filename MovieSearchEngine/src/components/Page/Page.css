@@ -1,0 +1,38 @@
+.page-container{
+    display: flex;
+    padding-bottom: 35px;
+    padding-top: 35px;
+
+}
+
+.page-result-container{
+    flex: 1;
+}
+
+.button-container{
+    width: fit-content;
+    height: 50px;
+    margin-top: 20px;
+    border: 3px solid black;
+}
+
+.page-number-container{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.each-page-container{
+    margin: 10px;
+    font-weight:bold ;
+    font-size: large;
+    cursor: pointer;
+    padding-top: 20px;
+}
+
+.total-result-container {
+    margin: 20px;
+    border: 3px solid black;
+    width: fit-content;
+    padding: 10px;
+}

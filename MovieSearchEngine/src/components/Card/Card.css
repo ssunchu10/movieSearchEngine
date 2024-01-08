@@ -1,3 +1,36 @@
-.card {
-    text-align: center;
+
+.card-container {
+    display: flex;
+    border: 1px solid #333;
+    margin: 20px 20px 20px 20px;
 }
+.card-image-container {
+    flex: 1;
+    margin: 10px;
+    width: 30%;
+}
+.card-content-container {
+    flex: 1;
+    margin: 10px;
+}
+
+.card-photo-container {
+    width: 15%;
+}
+
+  .card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 16px;
+  }
+
+  .card-rating {
+    font-size: 1rem;
+    color: #f39c12;
+    font-weight: bold;
+  }

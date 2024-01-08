@@ -1,5 +1,6 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import "./Card.css"
 // import { useEffect, useState } from "react";
 // import SearchBar from "./SearchBar";
 

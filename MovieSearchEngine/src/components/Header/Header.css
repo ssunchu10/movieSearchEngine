@@ -5,8 +5,8 @@ body, h1, p, ul, li {
   
   /* Style for the header */
   header {
-    background-color: #333; /* Set background color */
-    color: #fff; /* Set text color */
+    background-color: #000000; /* Set background color */
+    color: #ffffff; /* Set text color */
     padding: 10px; /* Add padding for content inside the header */
     text-align: center; /* Center align text */
   }

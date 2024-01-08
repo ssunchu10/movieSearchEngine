@@ -1,0 +1,63 @@
+.footer-container{
+    background-color: #000000; /* Set background color */
+    color: #ffffff; /* Set text color */
+    padding: 10px; /* Add padding for content inside the header */
+    text-align: center;
+    display: flex;
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+}
+.footer-executed-container{
+    background-color: #000000; /* Set background color */
+    color: #ffffff; /* Set text color */
+    padding: 10px; /* Add padding for content inside the header */
+    text-align: center;
+    display: flex;
+    position: sticky;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+}
+
+.content-container{
+    flex: 1;
+}
+
+.name-container{
+    margin: 14px;
+}
+
+.content2-container{
+    flex: 1;
+}
+
+.icon{
+    height: 40px;
+    width: 55px;
+}
+
+.linkedin{
+    color: rgb(0, 0, 255);
+}
+
+.instagram{
+    color: rgb(240, 10, 213)
+}
+
+.facebook{
+    color: rgb(0, 140, 255)
+}
+
+.linkedin:hover{
+    color: rgb(15, 15, 138);
+}
+
+.instagram:hover{
+    color: rgb(140, 15, 126)
+}
+
+.facebook:hover{
+    color: rgb(23, 91, 146)
+}
