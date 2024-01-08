@@ -3,7 +3,13 @@ import "./Page.css";
 import { pageArray } from "../../utils";
 import { useState } from "react";
 
-const Page = ({ noOfPages, onPageChange, currentPage , totalResults, result }) => {
+const Page = ({
+  noOfPages,
+  onPageChange,
+  currentPage,
+  totalResults,
+  result,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [totalPages, setTotalPages] = useState([]);
 
@@ -43,18 +49,46 @@ const Page = ({ noOfPages, onPageChange, currentPage , totalResults, result }) =
     setTotalPages(pageArray(noOfPages, 20));
   }, [noOfPages]);
 
+  const displayPageShowingResult = () => {
+    const multiplicationsOf20 = currentPage * 20;
+
+    const displayEndResult = () => {
+      if (multiplicationsOf20 > totalResults) {
+        return totalResults;
+      } else {
+        return multiplicationsOf20;
+      }
+    };
+    return `${
+      multiplicationsOf20 - 19
+    }-${displayEndResult()} out of ${totalResults}`;
+  };
+
   return (
     <div className="page-container">
       <div className="page-result-container">
-      {result.length > 0 ? (
-        <p className="total-result-container">
-          Showing results {currentPage*20-19}-{noOfPages > 1 ? currentPage*20 : totalResults } out of {totalResults}
-        </p>
-      ) : null}
+        {result.length > 0 ? (
+          <p className="total-result-container">
+            Showing results {displayPageShowingResult()}
+            {/* {currentPage * 20 - 19}
+            -
+            {noOfPages > 1
+              ? currentPage * 20 > totalResults
+                ? totalResults
+                : currentPage * 20
+              : totalResults}{" "}
+            out of {totalResults} */}
+          </p>
+        ) : null}
       </div>
       <div className="page-number-container">
         {noOfPages > 0 ? (
-          <button className="previous button-container" onClick={displayPrevious20Pages}>Previous Page</button>
+          <button
+            className="previous button-container"
+            onClick={displayPrevious20Pages}
+          >
+            Previous Page
+          </button>
         ) : null}
         {totalPages[currentIndex]?.map((item, index) => (
           <div
@@ -68,7 +102,12 @@ const Page = ({ noOfPages, onPageChange, currentPage , totalResults, result }) =
           </div>
         ))}
         {noOfPages > 0 ? (
-          <button className="next button-container" onClick={displayNext20Pages}>Next Page</button>
+          <button
+            className="next button-container"
+            onClick={displayNext20Pages}
+          >
+            Next Page
+          </button>
         ) : null}
       </div>
     </div>

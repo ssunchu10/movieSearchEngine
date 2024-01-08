@@ -5,9 +5,7 @@
 
 }
 
-.page-result-container{
-    flex: 1;
-}
+
 
 .button-container{
     width: fit-content;
@@ -18,8 +16,10 @@
 
 .page-number-container{
     display: flex;
-    flex: 1;
+    /* flex: 1;
+    justify-content: center; */
     justify-content: center;
+    /* margin-left: 10%; */
 }
 
 .each-page-container{
