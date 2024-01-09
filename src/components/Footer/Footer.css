@@ -22,11 +22,13 @@
 }
 
 .content-container{
+    display: flex;
     flex: 1;
 }
 
 .name-container{
     margin: 14px;
+    margin-bottom: 3px;
 }
 
 .content2-container{

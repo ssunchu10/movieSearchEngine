@@ -1,7 +1,14 @@
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import "./Footer.css";
 
-export const Footer = ({ name, address, address2, email, phone, noOfPages }) => {
+export const Footer = ({
+  name,
+  address,
+  address2,
+  email,
+  phone,
+  noOfPages,
+}) => {
   return (
     <div
       className={
@@ -10,10 +17,14 @@ export const Footer = ({ name, address, address2, email, phone, noOfPages }) => 
     >
       <div className="content-container">
         <h5 className="name-container">{name}</h5>
-        <p>{address}</p>
-        <p>{address2}</p>
-        <p>{email}</p>
-        <p>{phone}</p>
+        <div className="address-container">
+          <p>{address}</p>
+          <p>{address2}</p>
+        </div>
+        <div className="contact-container">
+          <p>{email}</p>
+          <p>{phone}</p>
+        </div>
       </div>
       <div>
         <a></a>

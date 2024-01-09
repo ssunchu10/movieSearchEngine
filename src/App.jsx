@@ -58,7 +58,7 @@ const App = () => {
       <Page noOfPages={totalPages} onPageChange={handlePage} currentPage={currentPage} totalResults={totalResults} result={result}/>
       <MovieList movieResult={result} />
       <Page noOfPages={totalPages} onPageChange={handlePage} currentPage={currentPage} totalResults={totalResults} result={result}/>
-      <Footer className="footer-container" name={"Sumit Sunchu"} address={"1622 Holmwood Drive Celina Texas 75009"} address2={"37/867, Adarsh Nagar, Worli, Mumbai - 400030"} email={"sumitsunchu@gmail.com"} phone={"903-990-0356"} noOfPages={totalPages} />
+      <Footer className="footer-container" name={"Sumit Sunchu"} address={"1622 Holmwood Drive Celina Texas 75009"} address2={"7/1 Ramodiya Mansion Worli Mumbai Maharashtra 400030"} email={"sumitsunchu@gmail.com"} phone={"+1 903-990-0356"} noOfPages={totalPages} />
     </div>
   );
 };
