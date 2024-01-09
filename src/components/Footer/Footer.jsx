@@ -1,12 +1,17 @@
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import "./Footer.css";
 
-export const Footer = ({ name, address, email, noOfPages  }) => {
+export const Footer = ({ name, address, address2, email, noOfPages }) => {
   return (
-    <div className={noOfPages > 0 ? "footer-executed-container" : "footer-container"}>
+    <div
+      className={
+        noOfPages > 0 ? "footer-executed-container" : "footer-container"
+      }
+    >
       <div className="content-container">
         <h5 className="name-container">{name}</h5>
         <p>{address}</p>
+        <p>{address2}</p>
         <p>{email}</p>
       </div>
       <div>
