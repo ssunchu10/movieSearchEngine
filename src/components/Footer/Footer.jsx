@@ -7,7 +7,7 @@ export const Footer = ({
   address2,
   email,
   phone,
-  noOfPages,
+  noOfPages
 }) => {
   return (
     <div
