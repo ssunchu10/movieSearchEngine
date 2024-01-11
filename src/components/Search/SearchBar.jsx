@@ -7,7 +7,7 @@ let SearchBar = ({ onChangeSearchBar, onClickButton, searchedValue }) => {
       <form onSubmit={onChangeSearchBar} >
         <input
           type="text"
-          placeholder="Type the movie name you want to search!"
+          placeholder="Search here!"
           onChange={onChangeSearchBar}
           value={searchedValue}
           className="search-input-container"

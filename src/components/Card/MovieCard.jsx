@@ -4,15 +4,19 @@ import "./Card.css";
 const MovieCard = ({ popularity, title, overview, posterPath }) => {
   return (
     <div className="card-container">
-      {/* <div className="card-image-container"> */}
       <img
         className="card-photo-container"
         src={`https://image.tmdb.org/t/p/w500${posterPath}`}
-        alt="Image Unavailable"
+        alt={"Image Unavailable"}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null; // prevents looping
+          currentTarget.src =
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzEnIvoqFQz-_nzodrgFhq7y6eN4yJoQVZ4g&usqp=CAU";
+          currentTarget.className = "card-photo-unavailable-container";
+        }}
       />
-      {/* </div> */}
       <div className="card-content-container">
-        <h3 className="card-title">{title}</h3>
+        <div className="card-title">{title}</div>
         <p className="card-description">{overview}</p>
         <p className="card-rating">Rating: {popularity}</p>
       </div>

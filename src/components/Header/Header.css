@@ -1,12 +1,8 @@
-body, h1, p, ul, li {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style for the header */
+    /* Style for the header */
   header {
     background-color: #000000; /* Set background color */
     color: #ffffff; /* Set text color */
-    padding: 10px; /* Add padding for content inside the header */
-    text-align: center; /* Center align text */
+    padding: 10px;
+    text-align: center; 
+    /* max-width: none; */
   }

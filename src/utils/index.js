@@ -19,7 +19,7 @@ export const pageArray = (totalPages, arraySize) => {
     if(currentArray.length > 0){
         result.push(currentArray)
     }
-    console.log("Result Array: ", result);
+    // console.log("Result Array: ", result);
     return result;
   }
 

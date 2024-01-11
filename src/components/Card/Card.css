@@ -1,28 +1,46 @@
+.movieList-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .card-container {
-    display: flex;
-    border: 1px solid #333;
-    margin: 20px 20px 20px 20px;
-}
-.card-image-container {
-    flex: 1;
-    margin: 10px;
-    width: 30%;
-}
-.card-content-container {
-    flex: 1;
-    margin: 10px;
+  border: 1px solid #333;  
+  margin: 20px 20px 20px 20px;
+  box-sizing: border-box;
 }
 
+.card-photo-unavailable-container{
+  width: 220px;
+  height: 330px;
+}
+/*  */
+
 .card-photo-container {
-    width: 15%;
+  max-width: 220px;
+  max-height: 330px;
+}
+
+.card-content-container {
+    padding: 10px;
+    max-inline-size: 220px;
 }
 
   .card-title {
     font-weight: bold;
-    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
+.card-container:hover{
+  transform: scale(1.05);
+  background-color: #f6f6f6b3;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  
+}
   .card-description {
     font-size: 0.9rem;
     color: #666;

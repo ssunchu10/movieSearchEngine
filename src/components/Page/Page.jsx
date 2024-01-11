@@ -46,7 +46,7 @@ const Page = ({
   };
 
   useEffect(() => {
-    setTotalPages(pageArray(noOfPages, 20));
+    setTotalPages(pageArray(noOfPages, 10));
   }, [noOfPages]);
 
   const displayPageShowingResult = () => {

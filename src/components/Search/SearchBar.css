@@ -1,17 +1,19 @@
 
   .search-bar-container {
-    background-color: #8a958d99; /* Set background color */
-    padding: 8px 12px; /* Add padding for button */
-    border: 3px solid rgb(0, 0, 0); /* Remove border */
+    padding: 8px 12px;
     cursor:default;
     display: flex;
     justify-content: center;
+    margin-top: 2%;
   } 
 
   .search-input-container{
-    width: 800px
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    max-width: max-content;
+
   }
   .search-button-container{
     margin-left: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
   
