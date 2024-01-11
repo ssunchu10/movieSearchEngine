@@ -17,7 +17,7 @@ const MovieCard = ({ popularity, title, overview, posterPath }) => {
       />
       <div className="card-content-container">
         <div className="card-title">{title}</div>
-        <p className="card-description">{overview}</p>
+        <div className="card-description">{overview}</div>
         <p className="card-rating">Rating: {popularity}</p>
       </div>
     </div>
