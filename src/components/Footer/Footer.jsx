@@ -1,5 +1,6 @@
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import "./Footer.css";
+import { useSelector } from "react-redux";
 
 export const Footer = ({
   name,
@@ -9,6 +10,12 @@ export const Footer = ({
   phone,
   noOfPages
 }) => {
+
+  // const pageState = useSelector((state) => state.pageState);
+  // const noOfPage = pageState.totalPages;
+
+  // console.log("This is total pages from redux", noOfPage);
+
   return (
     <div
       className={

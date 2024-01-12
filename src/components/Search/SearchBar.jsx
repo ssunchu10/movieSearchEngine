@@ -1,14 +1,20 @@
 import React from "react";
 import "./SearchBar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateSearchInput } from "./SearchSlice";
+import { updateSearchInput, getUpdatedResults } from "./SearchSlice";
 
-let SearchBar = ({onClickButton}) => {
+let SearchBar = () => {
   const searchState = useSelector((state) => state.searchState);
+  const pageState = useSelector((state) => state.pageState);
   const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {
     dispatch(updateSearchInput(event.target.value));
+  };
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    dispatch(getUpdatedResults());
   };
 
   return (
@@ -23,7 +29,7 @@ let SearchBar = ({onClickButton}) => {
         ></input>
         <button
           type="Submit"
-          onClick={onClickButton}
+          onClick={onSubmitHandler}
           className="search-button-container"
         >
           Search
