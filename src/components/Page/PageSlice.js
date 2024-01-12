@@ -4,11 +4,9 @@ const PageSlice = createSlice({
   name: "pageSlice",
   initialState: {
     totalPages: 0,
-    totalResults: 0,
     currentPage: 1,
     totalPagesArray: [],
     currentIndexOfTotalPagesArray: 0
-
   },
   reducers: {
     updateTotalPages: (state, action) => {

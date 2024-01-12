@@ -4,22 +4,14 @@ import SearchBar from "./components/Search/SearchBar";
 import MovieList from "./components/Card/MovieList";
 import Page from "./components/Page/Page";
 import { Footer } from "./components/Footer/Footer";
-import { useSelector } from "react-redux";
 import "./App.css";
-
-
-
 const App = () => {
-
-  const searchState = useSelector((state) => state.searchState);
-  const pageState = useSelector((state) => state.page);
-
   return (
     <div className="app-container">
       <Header title={"Sumit Sunchu's Movie Search Engine"} />
       <SearchBar />
       <Page />
-      <MovieList movieResult={searchState.searchResults} />
+      <MovieList />
       <Page />
       <Footer
         className="footer-container"
@@ -28,11 +20,13 @@ const App = () => {
         address2={"7/1 Ramodiya Mansion Worli Mumbai Maharashtra 400030"}
         email={"sumitsunchu@gmail.com"}
         phone={"+1 903-990-0356"}
-        noOfPages={pageState.totalPages}
       />
     </div>
   );
 };
+
+export default App;
+
 
 // class App extends React.Component {
 //   constructor(props) {
@@ -68,4 +62,3 @@ const App = () => {
 //   }
 // }
 
-export default App;

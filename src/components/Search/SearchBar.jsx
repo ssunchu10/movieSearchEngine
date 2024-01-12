@@ -5,7 +5,7 @@ import { updateSearchInput, getUpdatedResults } from "./SearchSlice";
 
 let SearchBar = () => {
   const searchState = useSelector((state) => state.searchState);
-  const pageState = useSelector((state) => state.pageState);
+  
   const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {

@@ -1,9 +1,11 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import { useSelector } from "react-redux";
 import "./Card.css"
 
-const MovieList = (props) => {
-  const moviesSearchResult = props.movieResult;
+const MovieList = () => {
+  const searchState = useSelector((state) => state.searchState);
+  const moviesSearchResult = searchState.searchResults;
 
   return (
     <div className="movieList-container">

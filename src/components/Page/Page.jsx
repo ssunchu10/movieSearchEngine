@@ -13,22 +13,25 @@ const Page = () => {
 
   const resultArray = searchState.searchResults;
   const totalNoOfResults = searchState.totalResults;
+  const currentIndexOfTotalPagesArray = pageState.currentIndexOfTotalPagesArray;
+  const totalPagesArray = pageState.totalPagesArray;
+  const totalPages = pageState.totalPages;
   
   const displayNext20Pages = () => {
-    if (pageState.currentIndexOfTotalPagesArray < pageState.totalPagesArray.length - 1) {
-      dispatch(updatecurrentIndexOfTotalPagesArray(pageState.currentIndexOfTotalPagesArray + 1));
+    if (currentIndexOfTotalPagesArray < totalPagesArray.length - 1) {
+      dispatch(updatecurrentIndexOfTotalPagesArray(currentIndexOfTotalPagesArray + 1));
     }
   };
 
   const displayPrevious20Pages = () => {
-    if (pageState.currentIndexOfTotalPagesArray > 0) {
-      dispatch(updatecurrentIndexOfTotalPagesArray(pageState.currentIndexOfTotalPagesArray - 1));
+    if (currentIndexOfTotalPagesArray > 0) {
+      dispatch(updatecurrentIndexOfTotalPagesArray(currentIndexOfTotalPagesArray - 1));
     }
   };
 
   useEffect(() => {
-    dispatch(updateTotalPageArray(pageArray(pageState.totalPages, 10)));
-  }, [pageState.totalPages]);
+    dispatch(updateTotalPageArray(pageArray(totalPages, 10)));
+  }, [totalPages]);
 
   const displayPageShowingResult = () => {
     const multiplicationsOf20 = pageState.currentPage * 20;
@@ -56,7 +59,7 @@ const Page = () => {
         ) : null}
       </div>
       <div className="page-number-container">
-        {pageState.totalPages > 0 ? (
+        {totalPages > 0 ? (
           <button
             className="previous button-container"
             onClick={displayPrevious20Pages}
@@ -64,7 +67,7 @@ const Page = () => {
             Previous Page
           </button>
         ) : null}
-        {pageState.totalPagesArray[pageState.currentIndexOfTotalPagesArray]?.map((item, index) => (
+        {totalPagesArray[currentIndexOfTotalPagesArray]?.map((item, index) => (
           <div
             key={index}
             className="each-page-container"
@@ -75,7 +78,7 @@ const Page = () => {
             {item}
           </div>
         ))}
-        {pageState.totalPages > 0 ? (
+        {totalPages > 0 ? (
           <button
             className="next button-container"
             onClick={displayNext20Pages}
