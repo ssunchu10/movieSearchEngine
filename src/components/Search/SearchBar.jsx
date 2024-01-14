@@ -1,11 +1,12 @@
 import React from "react";
 import "./SearchBar.css";
 import { useDispatch, useSelector } from "react-redux";
+import { getUpdatedTotalPageArray } from "../Page/PageSlice";
 import { updateSearchInput, getUpdatedResults } from "./SearchSlice";
 
 let SearchBar = () => {
   const searchState = useSelector((state) => state.searchState);
-  
+
   const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {
@@ -14,6 +15,7 @@ let SearchBar = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    // console.log("Came Here")
     dispatch(getUpdatedResults());
   };
 

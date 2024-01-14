@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { updateTotalPages, updateCurrentPage } from "../Page/PageSlice";
+import {
+  updateTotalPages,
+  updateCurrentPage,
+  getUpdatedTotalPageArray,
+} from "../Page/PageSlice";
 import { getMovieResult } from "../../apis/searchMovie";
 
 export const getUpdatedResults = () => async (dispatch, getState) => {
@@ -7,16 +11,18 @@ export const getUpdatedResults = () => async (dispatch, getState) => {
   const { page, searchState } = appState;
   const { searchInput } = searchState;
   const apiResponse = await getMovieResult(searchInput, page.currentPage);
+  // console.log("API Response  =>", apiResponse);
   dispatch(getSearchResponse(apiResponse.results));
   dispatch(updateTotalPages(apiResponse.total_pages));
+  dispatch(getUpdatedTotalPageArray(apiResponse.total_pages));
   dispatch(updateTotalResults(apiResponse.total_results));
 };
 
-export const getUpdatedResultOnPageChange = (pageNumber) => async (dispatch, getState) => {
-  dispatch(updateCurrentPage(pageNumber));
+export const getUpdatedResultOnPageChange =
+  (pageNumber) => async (dispatch, getState) => {
+    dispatch(updateCurrentPage(pageNumber));
 
-  const appState = getState();
-  
+    const appState = getState();
 
     const apiResponse = await getMovieResult(
       appState.searchState.searchInput,
@@ -25,7 +31,7 @@ export const getUpdatedResultOnPageChange = (pageNumber) => async (dispatch, get
 
     dispatch(getSearchResponse(apiResponse.results));
     dispatch(updateTotalPages(apiResponse.total_pages));
-};
+  };
 
 const SearchSlice = createSlice({
   name: "searchSlice",
@@ -36,6 +42,9 @@ const SearchSlice = createSlice({
   },
   reducers: {
     updateSearchInput: (state, action) => {
+      // console.log("Updated Action: ", action);
+
+      // console.log("Old State: ", state);
       return {
         ...state,
         searchInput: action.payload,
@@ -57,6 +66,7 @@ const SearchSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { updateSearchInput, getSearchResponse, updateTotalResults } = SearchSlice.actions;
+export const { updateSearchInput, getSearchResponse, updateTotalResults } =
+  SearchSlice.actions;
 
 export default SearchSlice.reducer;

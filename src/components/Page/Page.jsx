@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Page.css";
-import { pageArray } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
-import { updateTotalPageArray, updatecurrentIndexOfTotalPagesArray } from "./PageSlice";
+import { displayPage } from "./PageSlice";
 import { getUpdatedResultOnPageChange } from "../Search/SearchSlice";
 
 const Page = () => {
-
   const pageState = useSelector((state) => state.page);
   const searchState = useSelector((state) => state.searchState);
   const dispatch = useDispatch();
@@ -16,22 +14,6 @@ const Page = () => {
   const currentIndexOfTotalPagesArray = pageState.currentIndexOfTotalPagesArray;
   const totalPagesArray = pageState.totalPagesArray;
   const totalPages = pageState.totalPages;
-  
-  const displayNext20Pages = () => {
-    if (currentIndexOfTotalPagesArray < totalPagesArray.length - 1) {
-      dispatch(updatecurrentIndexOfTotalPagesArray(currentIndexOfTotalPagesArray + 1));
-    }
-  };
-
-  const displayPrevious20Pages = () => {
-    if (currentIndexOfTotalPagesArray > 0) {
-      dispatch(updatecurrentIndexOfTotalPagesArray(currentIndexOfTotalPagesArray - 1));
-    }
-  };
-
-  useEffect(() => {
-    dispatch(updateTotalPageArray(pageArray(totalPages, 10)));
-  }, [totalPages]);
 
   const displayPageShowingResult = () => {
     const multiplicationsOf20 = pageState.currentPage * 20;
@@ -54,7 +36,6 @@ const Page = () => {
         {resultArray.length > 0 ? (
           <p className="total-result-container">
             Showing results {displayPageShowingResult()}
-            
           </p>
         ) : null}
       </div>
@@ -62,7 +43,9 @@ const Page = () => {
         {totalPages > 0 ? (
           <button
             className="previous button-container"
-            onClick={displayPrevious20Pages}
+            onClick={() => {
+              dispatch(displayPage('previous'));
+            }}
           >
             Previous Page
           </button>
@@ -81,7 +64,9 @@ const Page = () => {
         {totalPages > 0 ? (
           <button
             className="next button-container"
-            onClick={displayNext20Pages}
+            onClick={() => {
+              dispatch(displayPage('next'));
+            }}
           >
             Next Page
           </button>
@@ -93,31 +78,33 @@ const Page = () => {
 
 export default Page;
 // Component Did Mount
-  /*
+/*
   useEffect(() => {
     setTotalPages(pageArray(noOfPages, 20));
   }, []);
   */
 
-  // Component Did Update
-  /*
+// Component Did Update
+/*
   useEffect(() => {
     setTotalPages(pageArray(noOfPages, 20));
   }, [noOfPages]);
   */
 
-  // Anything Updates made to Page Component - Run the Function
-  /*
+// Anything Updates made to Page Component - Run the Function
+/*
   useEffect(() => {
     setTotalPages(pageArray(noOfPages, 20));
   });
   */
 
-  {/* {currentPage * 20 - 19}
+{
+  /* {currentPage * 20 - 19}
             -
             {noOfPages > 1
               ? currentPage * 20 > totalNoOfResults
                 ? totalNoOfResults
                 : currentPage * 20
               : totalNoOfResults}{" "}
-            out of {totalNoOfResults} */}
+            out of {totalNoOfResults} */
+}
