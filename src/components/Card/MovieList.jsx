@@ -17,6 +17,8 @@ const MovieList = () => {
             title={movie.title}
             overview={movie.overview}
             posterPath={movie.poster_path}
+            voteAverage={movie.vote_average}
+            voteCount={movie.vote_count}
           />
         );
       })}

@@ -21,21 +21,21 @@ let SearchBar = () => {
 
   return (
     <div className="search-bar-container">
-      <form>
-        <input
-          type="text"
-          placeholder="Search here!"
-          onChange={onChangeHandler}
-          value={searchState.searchInput}
-          className="search-input-container"
-        ></input>
-        <button
-          type="Submit"
-          onClick={onSubmitHandler}
-          className="search-button-container"
-        >
-          Search
-        </button>
+      <form className="search movie-container">
+          <input
+            type="text"
+            placeholder="Search here!"
+            onChange={onChangeHandler}
+            value={searchState.searchInput}
+            className="search-input-container"
+          ></input>
+          <button
+            type="Submit"
+            onClick={onSubmitHandler}
+            className="search-button-container"
+          >
+            Search
+          </button>
       </form>
     </div>
   );

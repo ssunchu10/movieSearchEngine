@@ -5,10 +5,12 @@ import MovieList from "./components/Card/MovieList";
 import Page from "./components/Page/Page";
 import { Footer } from "./components/Footer/Footer";
 import "./App.css";
+
+console.log("Env Variables", process.env.REACT_APP_USE_EXPRESS_API);
 const App = () => {
   return (
     <div className="app-container">
-      <Header title={"Sumit Sunchu's Movie Search Engine"} />
+      <Header title={" Movie Search Engine"} />
       <SearchBar />
       <Page />
       <MovieList />
@@ -26,7 +28,6 @@ const App = () => {
 };
 
 export default App;
-
 
 // class App extends React.Component {
 //   constructor(props) {
@@ -61,4 +62,3 @@ export default App;
 //     );
 //   }
 // }
-

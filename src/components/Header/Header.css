@@ -1,8 +1,26 @@
     /* Style for the header */
   header {
-    background-color: #000000; /* Set background color */
+    background-color: #000000;
     color: #ffffff; /* Set text color */
     padding: 10px;
-    text-align: center; 
-    /* max-width: none; */
+  }
+
+  .title{
+    padding-right: 20px;
+    float: right;
+  }
+
+  .home-container{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+  }
+
+  .create-container{
+    padding-right: 10px;
+    text-decoration: none;
+  }
+
+  .delete-container{
+    text-decoration: none;
   }
