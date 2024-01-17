@@ -2,7 +2,15 @@ import React from "react";
 import "./Card.css";
 import { Rating } from "react-simple-star-rating";
 
-const MovieCard = ({ popularity, title, overview, posterPath, voteAverage, voteCount }) => {
+const MovieCard = ({
+  popularity,
+  title,
+  overview,
+  releaseDate,
+  posterPath,
+  voteAverage,
+  voteCount,
+}) => {
   return (
     <div className="card-container">
       <img
@@ -19,9 +27,17 @@ const MovieCard = ({ popularity, title, overview, posterPath, voteAverage, voteC
       <div className="card-content-container">
         <div className="card-title">{title}</div>
         <div className="card-description">{overview}</div>
+        {releaseDate.length > 0 ? (
+          <p className="card-date">({releaseDate})</p>
+        ) : null}
         <p className="card-rating">Popularity: {popularity}</p>
         <div className="vote-container">
-          <Rating className="star-container" size={20} initialValue={Math.round(voteAverage/2)} readonly={true}/>
+          <Rating
+            className="star-container"
+            size={20}
+            initialValue={Math.round(voteAverage / 2)}
+            readonly={true}
+          />
           <p className="vote-count-container">({voteCount})</p>
         </div>
       </div>

@@ -1,0 +1,19 @@
+.container{
+    padding: 8px 12px;
+    cursor:default;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 1% */
+}
+
+.delete-button-container{
+    border-radius: 15px;
+    width: -webkit-fill-available; ;
+    height: 40px;
+}
+
+.delete-title{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+  }

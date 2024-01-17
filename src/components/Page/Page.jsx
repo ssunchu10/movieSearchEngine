@@ -47,7 +47,7 @@ const Page = () => {
               dispatch(displayPage('previous'));
             }}
           >
-            Previous Page
+            Previous Pages
           </button>
         ) : null}
         {totalPagesArray[currentIndexOfTotalPagesArray]?.map((item, index) => (
@@ -68,7 +68,7 @@ const Page = () => {
               dispatch(displayPage('next'));
             }}
           >
-            Next Page
+            Next Pages
           </button>
         ) : null}
       </div>

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Delete.css"
 
 const Delete = () => {
   const [state, setState] = useState({
-    movieID: "",
-    movieTitle: "",
-    movieOverview: "",
+    movieID: ""
   });
 
   const handleInputChange = (e) => {
@@ -18,30 +17,32 @@ const Delete = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { movieID, movieTitle, movieOverview } = state;
+    const { movieID } = state;
 
     const movies = {
-      movieID,
-      movieTitle,
-      movieOverview,
+      movieID
     };
-
-    axios
+    try{
+      axios
       .delete("http://localhost:8080/create", movies)
-      .then(() => console.log("Movie Deleted"))
-      .catch((err) => {
-        console.error(err);
-      });
+      .then(() => console.log("Movie Deleted"));
+    }catch(error){
+      console.error("Error deleting movie: ", error);
+    }
+ 
   };
 
   return (
     <div>
+      <h3 className="delete-title">Delete Movie </h3>
       <br />
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <div style={{ width: "30%" }} className="form-group">
+          <div className="form-group">
+            <label className="input-description-container">ID*:</label>
             <input
-              type="text"
+              type="number"
+              min={0}
               className="form-control"
               name="movieID"
               placeholder="Movie ID"
@@ -49,8 +50,8 @@ const Delete = () => {
             />
           </div>
           <br />
-          <div style={{ width: "30%" }}>
-            <button className="button-container" type="submit" onClick={handleSubmit}>
+          <div >
+            <button className="delete-button-container" type="submit" onClick={handleSubmit}>
               Delete
             </button>
           </div>

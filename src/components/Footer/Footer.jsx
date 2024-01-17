@@ -1,22 +1,21 @@
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import "./Footer.css";
+import { useLocation } from "react-router-dom";
 
-export const Footer = ({
-  name,
-  address,
-  address2,
-  email,
-  phone
-}) => {
+export const Footer = ({ name, address, address2, email, phone }) => {
+  const searchState = useSelector((state) => state.searchState);
+  const noOfResults = searchState.searchResults.length;
 
-  const pageState = useSelector((state) => state.page);
-  const totalNoOfPages = pageState.totalPages;
+  const location = useLocation();
+  // console.log(location.pathname);
 
   return (
     <div
       className={
-        totalNoOfPages > 0 ? "footer-executed-container" : "footer-container"
+        noOfResults < 1 || location.pathname != "/"
+          ? "footer-container"
+          : "footer-executed-container"
       }
     >
       <div className="content-container">
