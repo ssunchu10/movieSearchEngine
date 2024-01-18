@@ -8,7 +8,7 @@ const Header = ({ title }) => {
   return (
     <header className="header">
       <h5 className="title">{title}</h5>
-      <nav>
+      <div className="navbar-container">
         {process.env.REACT_APP_USE_EXPRESS_API === "true" ? (
           <Link to={"/"} className="home-container">
             Home
@@ -24,7 +24,7 @@ const Header = ({ title }) => {
             Delete
           </Link>
         ) : null}
-      </nav>
+      </div>
     </header>
   );
 };

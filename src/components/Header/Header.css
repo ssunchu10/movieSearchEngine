@@ -2,13 +2,14 @@
   header {
     background-color: #000000;
     color: #ffffff; /* Set text color */
-    padding: 10px;
+    padding: 20px;
   }
 
   .title{
     padding-right: 20px;
     float: right;
   }
+
 
   .home-container{
     padding-left: 10px;

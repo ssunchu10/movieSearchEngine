@@ -52,9 +52,12 @@ const Create = () => {
     try {
       const response = await axios.post("http://localhost:8000/create", {
         movieList: movies,
+      }).then((response) => {
+        console.log("Response: ", response.status);
+        if(response.status){
+          alert('Movie added successfully');
+        }
       });
-
-      // console.log("API Response from Create API =>", response);
     } catch (error) {
       console.error("Error adding movie:", error);
     }

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Delete.css"
+import "./Delete.css";
 
 const Delete = () => {
   const [state, setState] = useState({
-    movieID: ""
+    movieID: "",
   });
 
   const handleInputChange = (e) => {
@@ -14,22 +14,28 @@ const Delete = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { movieID } = state;
 
-    const movies = {
-      movieID
-    };
-    try{
-      axios
-      .delete("http://localhost:8080/create", movies)
-      .then(() => console.log("Movie Deleted"));
-    }catch(error){
+    const movies = [
+      {
+        movieID,
+      },
+    ];
+    try {
+      const response = await axios
+        .post("http://localhost:8000/delete", { movieList: movies })
+        .then((response) => {
+          console.log("Response: ", response.status);
+          if (response.status) {
+            alert("Movie Deleted successfully");
+          }
+        });
+    } catch (error) {
       console.error("Error deleting movie: ", error);
     }
- 
   };
 
   return (
@@ -50,8 +56,12 @@ const Delete = () => {
             />
           </div>
           <br />
-          <div >
-            <button className="delete-button-container" type="submit" onClick={handleSubmit}>
+          <div>
+            <button
+              className="delete-button-container"
+              type="submit"
+              onClick={handleSubmit}
+            >
               Delete
             </button>
           </div>
