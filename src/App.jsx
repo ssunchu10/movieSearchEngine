@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import Create from "./components/Create/Create";
 import Delete from "./components/Delete/Delete";
+import ParticlesBg from "./components/Particles/ParticlesBg";
 
 console.log("Env Variables", process.env.REACT_APP_USE_EXPRESS_API);
 
@@ -15,24 +16,27 @@ const App = () => {
   //   console.log("API Response => ", apiresponse);
   // }, []);
   return (
-    <div className="app-container">
-      <BrowserRouter>
-        <Header title={" Movie Search Engine"} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/delete" element={<Delete />} />
-        </Routes>
-        <Footer
-          className="footer-container"
-          name={"Sumit Sunchu"}
-          address={"1622 Holmwood Drive Celina Texas 75009"}
-          address2={"7/1 Ramodiya Mansion Worli Mumbai Maharashtra 400030"}
-          email={"sumitsunchu@gmail.com"}
-          phone={"+1 903-990-0356"}
-        />
-      </BrowserRouter>
-    </div>
+    <>
+      <ParticlesBg /> 
+        <div className="app-container">
+          <BrowserRouter>
+            <Header title={" Movie Search Engine"} />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/delete" element={<Delete />} />
+            </Routes>
+            <Footer
+              className="footer-container"
+              name={"Sumit Sunchu"}
+              address={"1622 Holmwood Drive Celina Texas 75009"}
+              address2={"7/1 Ramodiya Mansion Worli Mumbai Maharashtra 400030"}
+              email={"sumitsunchu@gmail.com"}
+              phone={"+1 903-990-0356"}
+            />
+          </BrowserRouter>
+        </div>
+    </>
   );
 };
 

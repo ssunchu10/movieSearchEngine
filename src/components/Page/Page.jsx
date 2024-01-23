@@ -25,7 +25,7 @@ const Page = () => {
         return multiplicationsOf20;
       }
     };
-    return `${
+    return `Showing results ${
       multiplicationsOf20 - 19
     }-${displayEndResult()} out of ${totalNoOfResults}`;
   };
@@ -35,7 +35,7 @@ const Page = () => {
       <div className="page-result-container">
         {resultArray.length > 0 ? (
           <p className="total-result-container">
-            Showing results {displayPageShowingResult()}
+            {displayPageShowingResult()}
           </p>
         ) : null}
       </div>

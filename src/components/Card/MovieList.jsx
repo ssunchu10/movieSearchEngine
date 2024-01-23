@@ -1,5 +1,6 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import moment from "moment";
 import { useSelector } from "react-redux";
 import "./Card.css";
 
@@ -10,15 +11,14 @@ const MovieList = () => {
   return (
     <div className="movieList-container">
       {moviesSearchResult.map((movie) => {
-        // const year = movie.release_date.slice(0, 4)
-        const year = movie.release_date;
+        const formattedDate = moment(movie.release_date).format("MM/DD/YYYY");
         return (
           <MovieCard
             key={movie.id}
             popularity={movie.popularity}
             title={movie.title}
             overview={movie.overview}
-            releaseDate={year}
+            releaseDate={formattedDate}
             posterPath={movie.poster_path}
             voteAverage={movie.vote_average}
             voteCount={movie.vote_count}

@@ -1,10 +1,12 @@
 import React from "react";
 import "./Header.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
-import Delete from "../Delete/Delete";
 
 const Header = ({ title }) => {
+
+  // const reload = window.location.reload();
+
   return (
     <header className="header">
       <h5 className="title">{title}</h5>

@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateDeletedMovies } from "./DeleteSlice";
 import axios from "axios";
 import "./Delete.css";
 
 const Delete = () => {
-  const [state, setState] = useState({
-    movieID: "",
-  });
+
+  const deleteState = useSelector((state) => state.deleteState);
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    setState({
-      ...state,
+    dispatch(updateDeletedMovies({
+      ...deleteState.deletedMovies,
       [e.target.name]: e.target.value,
-    });
-  };
+    }))
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { movieID } = state;
+    const { movieID } = deleteState.deletedMovies;
 
     const movies = [
       {

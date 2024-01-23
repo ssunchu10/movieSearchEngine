@@ -28,7 +28,7 @@ const MovieCard = ({
         <div className="card-title">{title}</div>
         <div className="card-description">{overview}</div>
         {releaseDate.length > 0 ? (
-          <p className="card-date">({releaseDate})</p>
+          <p className="card-date">Released on: ({releaseDate})</p>
         ) : null}
         <p className="card-rating">Popularity: {popularity}</p>
         <div className="vote-container">

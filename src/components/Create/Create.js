@@ -1,25 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCreatedMovies } from "./CreateSlice";
 import "./Create.css";
 import axios from "axios";
 import moment from "moment";
 
 const Create = () => {
-  const [state, setState] = useState({
-    movieTitle: "",
-    movieOverview: "",
-    moviePopularity: 0,
-    moviePosterPath: "",
-    movieVoteCount: 0,
-    movieReleaseDate: 0,
-    movieVoteAverage: 0.0,
-  });
 
-  const handleInputChange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const createState = useSelector((state) => state.createState);
+  const dispatch = useDispatch();
+
+  const handleInputChange = (event) => {
+    dispatch(updateCreatedMovies({
+      ...createState.createdMovies,
+      [event.target.name]: event.target.value,
+    }))
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +28,7 @@ const Create = () => {
       movieVoteCount,
       movieReleaseDate,
       movieVoteAverage,
-    } = state;
+    } = createState.createdMovies;
 
     const covertedTS = moment(movieReleaseDate).unix();
 
@@ -47,7 +43,6 @@ const Create = () => {
         movieVoteAverage,
       },
     ];
-    // console.log("Movies which is created", movies);
 
     try {
       const response = await axios.post("http://localhost:8000/create", {
@@ -63,7 +58,7 @@ const Create = () => {
     }
   };
 
-  const enabled = state.movieTitle.length > 0 && state.movieOverview.length > 0;
+  const enabled = createState.createdMovies.movieTitle.length > 0 && createState.createdMovies.movieOverview.length > 0;
 
   return (
     <div className="create-container">

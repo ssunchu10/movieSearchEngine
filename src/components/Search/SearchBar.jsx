@@ -6,6 +6,7 @@ import { updateSearchInput, getUpdatedResults } from "./SearchSlice";
 
 let SearchBar = () => {
   const searchState = useSelector((state) => state.searchState);
+  const finalSearchInput = searchState.searchInput.trimEnd();
 
   const dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ let SearchBar = () => {
             type="text"
             placeholder="Search here!"
             onChange={onChangeHandler}
-            value={searchState.searchInput}
+            value={finalSearchInput}
             className="search-input-container"
           ></input>
           <button

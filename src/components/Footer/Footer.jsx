@@ -13,7 +13,7 @@ export const Footer = ({ name, address, address2, email, phone }) => {
   return (
     <div
       className={
-        noOfResults < 1 || location.pathname != "/"
+        noOfResults < 1 || location.pathname != "/" 
           ? "footer-container"
           : "footer-executed-container"
       }
