@@ -27,7 +27,7 @@ const Delete = () => {
       },
     ];
     try {
-      const response = await axios
+      await axios
         .post("http://localhost:8000/delete", { movieList: movies })
         .then((response) => {
           console.log("Response: ", response.status);

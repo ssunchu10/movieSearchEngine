@@ -43,9 +43,10 @@ const Create = () => {
         movieVoteAverage,
       },
     ];
+    console.log(movies[0].movieReleaseDate);
 
     try {
-      const response = await axios.post("http://localhost:8000/create", {
+      await axios.post("http://localhost:8000/create", {
         movieList: movies,
       }).then((response) => {
         console.log("Response: ", response.status);

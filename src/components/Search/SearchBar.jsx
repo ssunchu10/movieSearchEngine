@@ -1,13 +1,10 @@
 import React from "react";
 import "./SearchBar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getUpdatedTotalPageArray } from "../Page/PageSlice";
 import { updateSearchInput, getUpdatedResults } from "./SearchSlice";
 
-let SearchBar = () => {
-  const searchState = useSelector((state) => state.searchState);
-  const finalSearchInput = searchState.searchInput.trimEnd();
-
+const SearchBar = () => {
+  const searchInput = useSelector((state) => state.searchState.searchInput);
   const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {
@@ -16,27 +13,22 @@ let SearchBar = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    // console.log("Came Here")
     dispatch(getUpdatedResults());
   };
 
   return (
     <div className="search-bar-container">
-      <form className="search movie-container">
-          <input
-            type="text"
-            placeholder="Search here!"
-            onChange={onChangeHandler}
-            value={finalSearchInput}
-            className="search-input-container"
-          ></input>
-          <button
-            type="Submit"
-            onClick={onSubmitHandler}
-            className="search-button-container"
-          >
-            Search
-          </button>
+      <form className="search" onSubmit={onSubmitHandler}>
+        <input
+          type="text"
+          placeholder="Search movies..."
+          onChange={onChangeHandler}
+          value={searchInput.trimEnd()}
+          className="search-input-container"
+        />
+        <button type="submit" className="search-button-container">
+          Search
+        </button>
       </form>
     </div>
   );

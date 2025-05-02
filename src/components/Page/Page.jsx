@@ -77,34 +77,3 @@ const Page = () => {
 };
 
 export default Page;
-// Component Did Mount
-/*
-  useEffect(() => {
-    setTotalPages(pageArray(noOfPages, 20));
-  }, []);
-  */
-
-// Component Did Update
-/*
-  useEffect(() => {
-    setTotalPages(pageArray(noOfPages, 20));
-  }, [noOfPages]);
-  */
-
-// Anything Updates made to Page Component - Run the Function
-/*
-  useEffect(() => {
-    setTotalPages(pageArray(noOfPages, 20));
-  });
-  */
-
-{
-  /* {currentPage * 20 - 19}
-            -
-            {noOfPages > 1
-              ? currentPage * 20 > totalNoOfResults
-                ? totalNoOfResults
-                : currentPage * 20
-              : totalNoOfResults}{" "}
-            out of {totalNoOfResults} */
-}

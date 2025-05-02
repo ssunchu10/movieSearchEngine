@@ -1,27 +1,65 @@
-    /* Style for the header */
-  header {
-    background-color: #000000;
-    color: #ffffff; /* Set text color */
-    padding: 20px;
+/* Header Container */
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 16px 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Title Styling */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Common NavLink Style */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Hover and Active Styling */
+.nav-link:hover {
+  color: #00c3ff;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #00c3ff;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .title{
-    padding-right: 20px;
-    float: right;
+  .navbar {
+    gap: 16px;
   }
-
-
-  .home-container{
-    padding-left: 10px;
-    padding-right: 10px;
-    text-decoration: none;
-  }
-
-  .create-container{
-    padding-right: 10px;
-    text-decoration: none;
-  }
-
-  .delete-container{
-    text-decoration: none;
-  }
+}

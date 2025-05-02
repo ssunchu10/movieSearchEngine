@@ -11,11 +11,16 @@ export const getUpdatedResults = () => async (dispatch, getState) => {
   const { page, searchState } = appState;
   const { searchInput } = searchState;
   const apiResponse = await getMovieResult(searchInput, page.currentPage);
-  // console.log("API Response  =>", apiResponse);
-  dispatch(getSearchResponse(apiResponse.results));
-  dispatch(updateTotalPages(apiResponse.total_pages));
-  dispatch(getUpdatedTotalPageArray(apiResponse.total_pages));
-  dispatch(updateTotalResults(apiResponse.total_results));
+  if (apiResponse && Array.isArray(apiResponse.results)) {
+    dispatch(getSearchResponse(apiResponse.results));
+    dispatch(updateTotalPages(apiResponse.total_pages || 1));
+    dispatch(getUpdatedTotalPageArray(apiResponse.total_pages || 1));
+    dispatch(updateTotalResults(apiResponse.total_results || 0));
+  } else {
+    dispatch(getSearchResponse([]));
+    dispatch(updateTotalResults(0));
+  }
+  
 };
 
 export const getUpdatedResultOnPageChange =

@@ -16,7 +16,7 @@ const MovieCard = ({
       <img
         className="card-photo-container"
         src={`https://image.tmdb.org/t/p/w500${posterPath}`}
-        alt={"Image Unavailable"}
+        alt={title || "Image Unavailable"}
         onError={({ currentTarget }) => {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src =
@@ -26,8 +26,13 @@ const MovieCard = ({
       />
       <div className="card-content-container">
         <div className="card-title">{title}</div>
-        <div className="card-description">{overview}</div>
-        {releaseDate.length > 0 ? (
+        <div className="card-description">
+          {overview?.length > 150
+            ? `${overview.slice(0, 150)}...`
+            : overview || "No description available."}
+        </div>
+
+        {releaseDate ? (
           <p className="card-date">Released on: ({releaseDate})</p>
         ) : null}
         <p className="card-rating">Popularity: {popularity}</p>

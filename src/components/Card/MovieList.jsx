@@ -10,21 +10,25 @@ const MovieList = () => {
 
   return (
     <div className="movieList-container">
-      {moviesSearchResult.map((movie) => {
-        const formattedDate = moment(movie.release_date).format("MM/DD/YYYY");
-        return (
-          <MovieCard
-            key={movie.id}
-            popularity={movie.popularity}
-            title={movie.title}
-            overview={movie.overview}
-            releaseDate={formattedDate}
-            posterPath={movie.poster_path}
-            voteAverage={movie.vote_average}
-            voteCount={movie.vote_count}
-          />
-        );
-      })}
+      {Array.isArray(moviesSearchResult) && moviesSearchResult.length > 0 ? (
+        moviesSearchResult.map((movie) => {
+          const formattedDate = moment(movie.release_date).format("MM/DD/YYYY");
+          return (
+            <MovieCard
+              key={movie.id}
+              popularity={movie.popularity}
+              title={movie.title}
+              overview={movie.overview}
+              releaseDate={formattedDate}
+              posterPath={movie.poster_path}
+              voteAverage={movie.vote_average}
+              voteCount={movie.vote_count}
+            />
+          );
+        })
+      ) : (
+        <p className="no-results">No movies found.</p>
+      )}
     </div>
   );
 };

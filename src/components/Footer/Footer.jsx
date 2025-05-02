@@ -4,45 +4,53 @@ import "./Footer.css";
 import { useLocation } from "react-router-dom";
 
 export const Footer = ({ name, address, address2, email, phone }) => {
-  const searchState = useSelector((state) => state.searchState);
-  const noOfResults = searchState.searchResults.length;
-
+  const { searchResults } = useSelector((state) => state.searchState);
   const location = useLocation();
-  // console.log(location.pathname);
+
+  let footerClass = "footer-container";
+
+  if (location.pathname === "/create" || location.pathname === "/delete") {
+    footerClass += " static";
+  } else if (location.pathname === "/" && searchResults.length > 0) {
+    footerClass += " floated";
+  }
 
   return (
-    <div
-      className={
-        noOfResults < 1 || location.pathname != "/" 
-          ? "footer-container"
-          : "footer-executed-container"
-      }
-    >
-      <div className="content-container">
-        <h5 className="name-container">{name}</h5>
-        <div className="address-container">
+    <footer className={footerClass}>
+      <div className="footer-content">
+        <div className="footer-left">
+          <h5 className="footer-name">{name}</h5>
           <p>{address}</p>
           <p>{address2}</p>
         </div>
-        <div className="contact-container">
+        <div className="footer-center">
           <p>{email}</p>
           <p>{phone}</p>
         </div>
+        <div className="footer-right">
+          <a
+            href="https://www.linkedin.com/in/sumit-sunchu-6ab69b24b/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedin className="icon linkedin" />
+          </a>
+          <a
+            href="https://www.instagram.com/sumittt24?igsh=NTc4MTIwNjQ2YQ=="
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaInstagram className="icon instagram" />
+          </a>
+          <a
+            href="https://www.facebook.com/Mightyfox10"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaFacebook className="icon facebook" />
+          </a>
+        </div>
       </div>
-      <div>
-        <a></a>
-      </div>
-      <div className="content2-container">
-        <a href="https://www.linkedin.com/in/sumit-sunchu-6ab69b24b/">
-          <FaLinkedin className="icon linkedin"></FaLinkedin>
-        </a>
-        <a href="https://www.instagram.com/sumittt24?igsh=NTc4MTIwNjQ2YQ==">
-          <FaInstagram className="icon instagram"></FaInstagram>
-        </a>
-        <a href="https://www.facebook.com/Mightyfox10">
-          <FaFacebook className="icon facebook"></FaFacebook>
-        </a>
-      </div>
-    </div>
+    </footer>
   );
 };

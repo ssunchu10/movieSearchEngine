@@ -11,7 +11,7 @@ export const pageArray = (totalPages, arraySize) => {
 
   for (const i of pages) {
     currentArray.push(i);
-    if (currentArray.length == arraySize) {
+    if (currentArray.length === arraySize) {
       result.push(currentArray);
       currentArray = [];
     }

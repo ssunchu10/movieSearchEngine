@@ -1,31 +1,23 @@
 import React from "react";
 import "./Header.css";
-import { Link, Navigate } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 
 const Header = ({ title }) => {
-
-  // const reload = window.location.reload();
-
   return (
     <header className="header">
-      <h5 className="title">{title}</h5>
-      <div className="navbar-container">
-        {process.env.REACT_APP_USE_EXPRESS_API === "true" ? (
-          <Link to={"/"} className="home-container">
+      <div className="header-inner">
+        <h1 className="title">{title}</h1>
+        <nav className="navbar">
+          <NavLink to="/" className="nav-link" end>
             Home
-          </Link>
-        ) : null}
-        {process.env.REACT_APP_USE_EXPRESS_API === "true" ? (
-          <Link to={"/create"} className="create-container">
+          </NavLink>
+          <NavLink to="/create" className="nav-link">
             Create
-          </Link>
-        ) : null}
-        {process.env.REACT_APP_USE_EXPRESS_API === "true" ? (
-          <Link to={"/delete"} className="delete-container">
+          </NavLink>
+          <NavLink to="/delete" className="nav-link">
             Delete
-          </Link>
-        ) : null}
+          </NavLink>
+        </nav>
       </div>
     </header>
   );
